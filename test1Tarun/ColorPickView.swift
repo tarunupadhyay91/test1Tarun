@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ColorPickView: View {
+    @Binding var selectedColor: Color
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ColorPicker("Select Color", selection: $selectedColor)
+            .padding()
     }
 }
 
 #Preview {
-    ColorPickView()
+    ColorPickView(selectedColor:.constant(.blue))
 }

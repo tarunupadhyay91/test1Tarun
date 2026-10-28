@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var fruits = ["Banana","apple","oranges"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List{
+                ForEach(fruits,id: \.self) { item in
+                    CellView(name: item)
+                }
+                .onDelete(perform: deleteItem)
+            }
+            .navigationTitle("Home View")
+        }
+    }
+    private func deleteItem(at offset:IndexSet) {
+        fruits.remove(atOffsets: offset)
     }
 }
 

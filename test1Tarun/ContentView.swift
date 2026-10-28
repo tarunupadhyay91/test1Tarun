@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedColor:Color = .white
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            selectedColor
+                .ignoresSafeArea()
+            VStack {
+               // LoginView()
+                ColorPickView(selectedColor: $selectedColor)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CellView: View {
+    var name:String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Image(systemName: "receipt.fill")
+                .resizable()
+                .frame(width: 50,height: 50)
+            Text(name)
+        }
     }
 }
 
 #Preview {
-    CellView()
+    CellView(name: "Apple")
 }
